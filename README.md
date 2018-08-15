@@ -1,2 +1,2 @@
 # BoilerCycle
-lightweight android library for quick RecyclerView creation.
+Lightweight android library for quick RecyclerView creation.
