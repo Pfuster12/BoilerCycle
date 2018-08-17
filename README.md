@@ -1,11 +1,11 @@
 # BoilerCycle
 Lightweight android library for quick RecyclerView creation.
 
-Using RecyclerView can sometimes be tedious and time-consuming, specially when theres a large number of lists in your app. Creating new classes for adapters and ViewHolders becomes annoying and difficult to follow, including a lot of boilerplate code.
+Using RecyclerView can sometimes be tedious and time-consuming, specially when theres a large number of lists in your app. Creating new classes for adapters and ViewHolders becomes annoying and includes a lot of boilerplate code. 
+
+Making a RecyclerView list using BoilerCycle is easy. It keeps the code in your original class improving code legibility and has a quick set up. It only takes a simple chain function.
 
 ## How-To
-Making a list with RecyclerView using BoilerCycle is easy. It keeps the code in your original class improving code legibility and has a quick set up. It only takes a simple chain function.
-
 Declare a RecyclerView in your layout:
 
 ```xml
@@ -48,30 +48,48 @@ The library lets you set your custom item layout to use. Create your item's layo
 ```
 Now grab the recycler view in code and set its layout manager:
 
-```Kotlin
+```kotlin
  recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 ```
 
 We're ready to use BoilerCycle. First get an instance of the library:
-```Kotlin
+```kotlin
 BoilerCycle.getBoiler()
 ...
 ```
 Next set your custom item layout to use
-```Kotlin
+```kotlin
 BoilerCycle.getBoiler()
+          // set the item layout,
          .setItemLayout(R.layout.item)
 ...
 ```
-And finally set the adapter. Boilercycle uses the great Kotlin lambda use to provide the adapter with custom on bind and on item click methods. Pass the data for size count and let all the boilerplate be handled:
+And finally set the adapter. Boilercycle uses the great Kotlin lambda to provide the adapter with custom onBind and onItem click methods. Pass the data for list size count and let all the boilerplate be handled:
 ```Kotlin
 BoilerCycle.getBoiler()
-        .setItemLayout(R.layout.item)
-        .setSimpleAdapter(this, recycler_view, data,
-                onBind = {textView, position ->
-                    textView.text = data[position]
-                },
-                onClick = { view, position ->
-                    Toast.makeText(this, "Clicked on: " + "$position", Toast.LENGTH_SHORT).show()
-                }))
+                // set the item layout,
+                .setItemLayout(R.layout.item)
+                // set the adapter,
+                .setAdapter(this, recycler_view, listData,
+                        // onBind lambda method passed with view holder and position data,
+                        onBind = { holder, position ->
+                            // set holder views with data,
+                            holder.itemView.boilercycler_item_image.setImageDrawable(drawable)
+                            holder.itemView.boilercycler_item_title.text = listData[position]
+                        },
+                        // onClick method passed with view and position data,
+                        onClick = { view, position ->
+                            Toast.makeText(this, "Clicked on: " + "$position", Toast.LENGTH_SHORT).show()
+                        })
+```
+
+Everytime data is updated, added or deleted just notify from your RecyclerView adapter. For example:
+
+```
+fun dataUpdate() {
+    ...
+    // notify the adapter
+    recycler_view.adapter.notifyDataSetChanged()
+    ...
+}
 ```
