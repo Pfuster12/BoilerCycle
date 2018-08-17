@@ -22,7 +22,7 @@ class BoilerCycle private constructor() {
     // check if user is using simple item
     private var isUsingSimpleItem = false
     // adapter variable
-    var adapter: RecyclerView.Adapter<ViewHolder>? = null
+    private var adapter: RecyclerView.Adapter<ViewHolder>? = null
 
     companion object {
         private var instance: BoilerCycle? = null
@@ -103,10 +103,6 @@ class BoilerCycle private constructor() {
 
         // returns the recycler view attached to the adapter
         return recyclerView
-    }
-
-    fun notifyDataChange() {
-
     }
 
     /**
