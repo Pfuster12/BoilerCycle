@@ -65,7 +65,7 @@ BoilerCycle.getBoiler()
 ...
 ```
 And finally set the adapter. Boilercycle uses the great Kotlin lambda to provide the adapter with custom onBind and onItem click methods. Pass the context, RecyclerView and your list of data for size count and let all the boilerplate be handled:
-```Kotlin
+```kotlin
 BoilerCycle.getBoiler()
                 // set the item layout,
                 .setItemLayout(R.layout.item)
