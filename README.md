@@ -19,7 +19,7 @@ Declare a RecyclerView in your layout:
 ...
 ```
 
-The library lets you set your custom item layout to use. Create your item's layout:
+The library lets you set a custom item layout For example:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
