@@ -1,4 +1,7 @@
 # BoilerCycle
+
+[ ![Download](https://api.bintray.com/packages/pfuster12/maven/boilercycle/images/download.svg) ](https://bintray.com/pfuster12/maven/boilercycle/_latestVersion)
+
 Lightweight android library for quick RecyclerView creation written in Kotlin.
 
 Using RecyclerView can sometimes be tedious and time-consuming, specially when theres a large number of lists in your app. Creating new classes for adapters and ViewHolders becomes annoying and includes a lot of boilerplate code. 
