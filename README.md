@@ -6,7 +6,7 @@ Lightweight android library for quick RecyclerView creation written in Kotlin.
 
 Using RecyclerView can sometimes be tedious and time-consuming, specially when theres a large number of lists in your app. Creating new classes for adapters and ViewHolders becomes annoying and includes a lot of boilerplate code. 
 
-Instead creating a RecyclerView list using BoilerCycle is easy. It keeps the code in your original class improving code legibility and has a quick set up. It only takes a simple chain function.
+Creating a RecyclerView list using BoilerCycle instead is easy. It keeps the code in your original class improving code legibility and has a ;ightning quick set up. It only takes a simple chain function!
 
 ## How-To
 Declare a RecyclerView in your layout:
