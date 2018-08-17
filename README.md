@@ -95,7 +95,7 @@ fun dataUpdate() {
 ```
 
 ## Using a simple list item
-The BoilerCycle library contains a simple item layout that can be used as default if the list is a very basic, or for testing. It contains a single Textview with padding:
+The BoilerCycle library contains a simple item layout that can be used as default if the list is very basic, or for testing. It contains a single Textview with padding:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
