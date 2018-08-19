@@ -106,7 +106,24 @@ class BoilerCycle private constructor() {
                 }
 
                 // gets the item count from the data list
-                override fun getItemCount() = data.size
+                override fun getItemCount(): Int {
+                    return when (true) {
+                        // only header
+                        isUsingHeader && !isUsingFooter -> {
+                            data.size + 1
+                        }
+                        // only footer
+                        isUsingFooter && !isUsingHeader -> {
+                            data.size + 1
+                        }
+                        // using both
+                        isUsingHeader && isUsingFooter -> {
+                            data.size + 2
+                        }
+                        // else return item type
+                        else -> data.size
+                    }
+                }
 
                 // on binds through lambda function
                 override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -114,32 +131,32 @@ class BoilerCycle private constructor() {
                 }
 
                 // get whether item is a header, footer or item
-                override fun getItemId(position: Int): Long {
-                    when {
+                override fun getItemViewType(position: Int): Int {
+                    when (true) {
                         // only header
                         isUsingHeader && !isUsingFooter -> {
                             return when (position) {
-                                0 -> BOILERCYCLE_HEADER.toLong()
-                                else -> BOILERCYCLE_ITEM.toLong()
+                                0 -> BOILERCYCLE_HEADER
+                                else -> BOILERCYCLE_ITEM
                             }
                         }
                         // only footer
                         isUsingFooter && !isUsingHeader -> {
                             return when (position) {
-                                data.size -> BOILERCYCLE_FOOTER.toLong()
-                                else -> BOILERCYCLE_ITEM.toLong()
+                                data.size -> BOILERCYCLE_FOOTER
+                                else -> BOILERCYCLE_ITEM
                             }
                         }
                         // using both
                         isUsingHeader && isUsingFooter -> {
                             return when (position) {
-                                0 -> BOILERCYCLE_HEADER.toLong()
-                                data.size + 1 -> BOILERCYCLE_FOOTER.toLong()
-                                else -> BOILERCYCLE_ITEM.toLong()
+                                0 -> BOILERCYCLE_HEADER
+                                data.size + 1 -> BOILERCYCLE_FOOTER
+                                else -> BOILERCYCLE_ITEM
                             }
                         }
                         // else return item type
-                        else -> return BOILERCYCLE_ITEM.toLong()
+                        else -> return BOILERCYCLE_ITEM
                     }
                 }
             }
