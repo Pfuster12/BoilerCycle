@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 // constants
-private const val BOILERCYCLE_ITEM = 100
-private const val BOILERCYCLE_HEADER = 101
-private const val BOILERCYCLE_FOOTER = 102
+@PublishedApi
+internal const val BOILERCYCLE_ITEM = 100
+@PublishedApi
+internal const val BOILERCYCLE_HEADER = 101
+@PublishedApi
+internal const val BOILERCYCLE_FOOTER = 102
 
 /**
  * BoilerCycle is a one-class lightweight Android Library that handles creating the
@@ -22,20 +25,27 @@ class BoilerCycle private constructor() {
     /**
      * Global vars
      */
+    @PublishedApi
     // holds the layout id to inflate in the view holder
-    private var mResId = -1
+    internal var mResId = -1
+    @PublishedApi
     // holds the header layout id to inflate in the view holder
-    private var mHeaderResId = -1
+    internal var mHeaderResId = -1
+    @PublishedApi
     // holds the footer layout id to inflate in the view holder
-    private var mFooterResId = -1
+    internal var mFooterResId = -1
+    @PublishedApi
     // bool check if user is using a header
-    private var isUsingHeader = false
+    internal var isUsingHeader = false
+    @PublishedApi
     // bool check if user is using a header
-    private var isUsingFooter = false
+    internal var isUsingFooter = false
+    @PublishedApi
     // check if user is using simple item
-    private var isUsingSimpleItem = false
+    internal var isUsingSimpleItem = false
+    @PublishedApi
     // adapter variable
-    private var adapter: RecyclerView.Adapter<ViewHolder>? = null
+    internal var adapter: RecyclerView.Adapter<ViewHolder>? = null
 
     companion object {
         private var instance: BoilerCycle? = null
@@ -84,8 +94,8 @@ class BoilerCycle private constructor() {
      * Finally the view holder on click is passed through as a lambda, to go into the
      * view holder constructor.
      */
-    fun setAdapter(context: Context, recyclerView: RecyclerView, data: List<Any>,
-                   onBind: (holder: ViewHolder, position: Int) -> Unit, onClick: (view: View, position: Int) -> Unit): RecyclerView? {
+    inline fun setAdapter(context: Context, recyclerView: RecyclerView, data: List<Any>,
+                   crossinline onBind: (holder: ViewHolder, position: Int) -> Unit, noinline onClick: (view: View, position: Int) -> Unit): RecyclerView? {
         if (!isUsingSimpleItem) {
             // init the adapter,
             adapter = object : RecyclerView.Adapter<ViewHolder>() {
