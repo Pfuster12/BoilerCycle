@@ -4,7 +4,7 @@
 
 Lightweight android library for quick RecyclerView creation written in Kotlin.
 
-New gitbook docs available: https://lightmass.gitbook.io/boilercycle/
+Read the guide in a beautiful gitbook website: https://lightmass.gitbook.io/boilercycle/
 
 ## Use BoilerCycle in your App
 
