@@ -4,9 +4,7 @@
 
 Lightweight android library for quick RecyclerView creation written in Kotlin.
 
-Using RecyclerView can sometimes be tedious and time-consuming, specially when theres a large number of lists in your app. Creating new classes for adapters and ViewHolders becomes annoying and includes a lot of boilerplate code. 
-
-Creating a RecyclerView list using BoilerCycle instead is easy. It keeps the code in your original class improving code legibility and has a lightning quick set up. It only takes a simple chain function!
+New gitbook docs available: https://lightmass.gitbook.io/boilercycle/
 
 ## Use BoilerCycle in your App
 
@@ -17,6 +15,11 @@ implementation 'com.lightmass.lib:boilercycle:1.0.0'
 ```
 
 ## How-To
+
+Using RecyclerView can sometimes be tedious and time-consuming, specially when theres a large number of lists in your app. Creating new classes for adapters and ViewHolders becomes annoying and includes a lot of boilerplate code. 
+
+Creating a RecyclerView list using BoilerCycle instead is easy. It keeps the code in your original class improving code legibility and has a lightning quick set up. It only takes a simple chain function!
+
 Declare a RecyclerView in your layout:
 
 ```xml
@@ -30,7 +33,7 @@ Declare a RecyclerView in your layout:
 ...
 ```
 
-The library lets you set a custom item layout. For example:
+The library lets you set a custom item layout. For example let's create a simple image and TextView item:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
