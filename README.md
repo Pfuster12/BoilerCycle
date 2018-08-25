@@ -10,7 +10,7 @@ Creating a RecyclerView list using BoilerCycle instead is easy. It keeps the cod
 
 ## Use BoilerCycle in your App
 
-BoilerCycle is uploaded in JCenter. You can add BoilerCycle in your app easily by adding the dependency into your app module's build.gradle file dependencies section:
+BoilerCycle is uploaded in JCenter. You can add BoilerCycle in your app easily by adding the dependency into your app module's ```build.gradle``` file dependencies section:
 
 ```groovy
 implementation 'com.lightmass.lib:boilercycle:1.0.0'
