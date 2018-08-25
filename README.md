@@ -8,6 +8,14 @@ Using RecyclerView can sometimes be tedious and time-consuming, specially when t
 
 Creating a RecyclerView list using BoilerCycle instead is easy. It keeps the code in your original class improving code legibility and has a lightning quick set up. It only takes a simple chain function!
 
+## Use BoilerCycle in your App
+
+BoilerCycle is uploaded in JCenter. You can add BoilerCycle in your app easily by adding the dependency into your app module's ```build.gradle``` file dependencies section:
+
+```groovy
+implementation 'com.lightmass.lib:boilercycle:1.0.0'
+```
+
 ## How-To
 Declare a RecyclerView in your layout:
 
