@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(this, "Clicked on: " + "$position", Toast.LENGTH_SHORT).show()
                         })*/
 
-        
+
         // set the button
         setAddMoreButton()
     }
