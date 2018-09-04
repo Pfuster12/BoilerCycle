@@ -11,7 +11,7 @@ Read the guide in a beautiful gitbook website: https://lightmass.gitbook.io/boil
 BoilerCycle is uploaded in JCenter. You can add BoilerCycle in your app easily by adding the dependency into your app module's ```build.gradle``` file dependencies section:
 
 ```groovy
-implementation 'com.lightmass.lib:boilercycle:1.0.0'
+implementation 'com.lightmass.lib:boilercycle:1.1.0'
 ```
 
 ## How-To
