@@ -11,7 +11,7 @@ Read the guide in a beautiful gitbook website: https://lightmass.gitbook.io/boil
 BoilerCycle is uploaded in JCenter. You can add BoilerCycle in your app easily by adding the dependency into your app module's ```build.gradle``` file dependencies section:
 
 ```groovy
-implementation 'com.lightmass.lib:boilercycle:1.1.0'
+implementation 'com.lightmass.lib:boilercycle:1.2.0'
 ```
 
 ## How-To
@@ -112,88 +112,4 @@ fun dataUpdate() {
 
 In ```v1.1.0``` BoilerCycle now supports adding header and footer items that will show at the top and bottom of your RecyclerView respectively. Adding them is similar to adding an item.
 
-Simply chain the functions ```useHeader(resId: Int)``` or ```useFooter(resId: Int)``` (Or both) before setting the adapter:
-
-```kotlin
-BoilerCycle.getBoiler()
-        // set the item layout,
-        .setItemLayout(R.layout.item)
-        // set the header item
-        .useHeader(R.layout.header)
-        // set the footer item
-        .useFooter(R.layout.footer)
-        // set the adapter
-        ...
-```
-Then in the adapter's method onBind, simply check for what position you are binding for (Whether it is the first i.e. the header or the last, i.e. the footer). This can be done with a when statement for example:
-
-```kotlin
-BoilerCycle.getBoiler()
-        // set the item layout,
-        .setItemLayout(R.layout.item)
-        // set the header item
-        .useHeader(R.layout.header)
-        // set the footer item
-        .useFooter(R.layout.footer)
-        // set the adapter with context, RecyclerView and list data,
-        .setAdapter(this, recycler_view, listData,
-                // onBind lambda method passed with view holder and position data,
-                onBind = { holder, position ->
-                    when (position) {
-                        // for the header,
-                         0 -> // do something
-                        // for items, pass position - 1 as header takes the first index,
-                        in 1..data.size -> holder.itemView.boilercycler_item_title.text = data[position - 1]
-                        // for the footer,
-                        data.size + 1 -> // do something
-                    }
-                    // set holder views with data,
-                    holder.itemView.boilercycler_item_image.setImageDrawable(drawable)
-                    holder.itemView.boilercycler_item_title.text = listData[position]
-                },
-                // onClick method passed with view and position data,
-                onClick = { view, position ->
-                    Toast.makeText(this, "Clicked on: " + "$position", Toast.LENGTH_SHORT).show()
-                })
-...
-```
-
-## Using a simple list item
-The BoilerCycle library contains a simple item layout that can be used as default if the list is very basic, or for testing. It contains a single Textview with padding:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <TextView
-        android:id="@+id/simple_boilercycler_item_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        tools:text="Item1"
-        style="@style/Base.TextAppearance.AppCompat.Body1"/>
-
-</LinearLayout>
-
-```
-
-The simple layout can be used by calling the setSimpleAdapter() method directly on the instance, no need to set a layout:
-
-```kotlin
-BoilerCycle.getBoiler()
-                // set the adapter with context, RecyclerView and list data,
-                .setSimpleAdapter(this, recycler_view, data,
-                        onBind = {textView, position ->
-                            // set the simple item TextView
-                            textView.text = data[position]
-                        },
-                        onClick = { view, position ->
-                            Toast.makeText(this, "Clicked on: " + "$position", Toast.LENGTH_SHORT).show()
-                        })
-```
-
-Enjoy making lists again!
+Simply chain the functions ```useHeader(resId: Int)``` or ```useFooter
