@@ -49,15 +49,15 @@ ext {
     siteUrl = 'https://github.com/Pfuster12/BoilerCycle'
     gitUrl = 'https://github.com/Pfuster12/BoilerCycle.git'
 
-    libraryVersion = '1.1.0'
+    libraryVersion = '1.2.0'
 
     developerId = 'Pfuster12'
     developerName = 'Pablo Fuster'
     developerEmail = 'p.fuster.a@gmail.com'
 
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+    licenseName = 'MIT License'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
 }
 
 tasks.withType(Javadoc).all {

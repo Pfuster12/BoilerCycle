@@ -48,9 +48,7 @@ class BoilerCycle private constructor() {
     internal var adapter: RecyclerView.Adapter<ViewHolder>? = null
 
     companion object {
-        private var instance: BoilerCycle? = null
-        fun getBoiler() =
-                instance ?: BoilerCycle()
+        fun getBoiler() = BoilerCycle()
     }
 
     /**
