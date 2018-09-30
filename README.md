@@ -110,6 +110,50 @@ fun dataUpdate() {
 
 ## Adding Headers and Footers
 
-In ```v1.1.0``` BoilerCycle now supports adding header and footer items that will show at the top and bottom of your RecyclerView respectively. Adding them is similar to adding an item.
+In v1.1.0 BoilerCycle now supports adding header and footer items that will show at the top and bottom of your RecyclerView respectively. Adding them is similar to adding an item.
 
-Simply chain the functions ```useHeader(resId: Int)``` or ```useFooter
+Simply chain the functions useHeader(resId: Int) or useFooter(resId: Int) (Or both) before setting the adapter:
+
+```kotlin
+BoilerCycle.getBoiler()
+        // set the item layout,
+        .setItemLayout(R.layout.item)
+        // set the header item
+        .useHeader(R.layout.header)
+        // set the footer item
+        .useFooter(R.layout.footer)
+        // set the adapter
+        ...
+```
+
+Then in the adapter's method onBind, simply check for what position you are binding for (Whether it is the first i.e. the header or the last, i.e. the footer). This can be done with a when statement for example:
+
+```kotlin
+BoilerCycle.getBoiler()
+        // set the item layout,
+        .setItemLayout(R.layout.item)
+        // set the header item
+        .useHeader(R.layout.header)
+        // set the footer item
+        .useFooter(R.layout.footer)
+        // set the adapter with context, RecyclerView and list data,
+        .setAdapter(this, recycler_view, listData,
+                // onBind lambda method passed with view holder and position data,
+                onBind = { holder, position ->
+                    when (position) {
+                        // for the header,
+                         0 -> // do something
+                        // for items, pass position - 1 as header takes the first index,
+                        in 1..data.size -> holder.itemView.boilercycler_item_title.text = data[position - 1]
+                        // for the footer,
+                        data.size + 1 -> // do something
+                    }
+                    // set holder views with data,
+                    holder.itemView.boilercycler_item_image.setImageDrawable(drawable)
+                    holder.itemView.boilercycler_item_title.text = listData[position]
+                },
+                // onClick method passed with view and position data,
+                onClick = { view, position ->
+                    Toast.makeText(this, "Clicked on: " + "$position", Toast.LENGTH_SHORT).show()
+                })
+```
