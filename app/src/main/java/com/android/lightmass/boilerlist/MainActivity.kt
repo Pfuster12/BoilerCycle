@@ -1,10 +1,11 @@
 package com.android.lightmass.boilerlist
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.lightmass.boilercycle.BoilerCycle
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         data = mutableListOf("This", "is", "a", "good", "example")
 
         // set the layout manager,
-        recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recycler_view.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         /**
          * Simple adapter example
@@ -92,7 +93,7 @@ class MainActivity : AppCompatActivity() {
     private fun setAddMoreButton() {
         button.setOnClickListener {
             data.addAll(listOf("This", "is", "even", "better"))
-            recycler_view.adapter.notifyDataSetChanged()
+            recycler_view.adapter?.notifyDataSetChanged()
         }
     }
 }
