@@ -112,7 +112,7 @@ fun dataUpdate() {
 
 In v1.1.0 BoilerCycle now supports adding header and footer items that will show at the top and bottom of your RecyclerView respectively. Adding them is similar to adding an item.
 
-Simply chain the functions useHeader(resId: Int) or useFooter(resId: Int) (Or both) before setting the adapter:
+Simply chain the functions `useHeader(resId: Int)` or `useFooter(resId: Int)` (Or both) before setting the adapter:
 
 ```kotlin
 BoilerCycle.getBoiler()
@@ -144,13 +144,10 @@ BoilerCycle.getBoiler()
                         // for the header,
                          0 -> // do something
                         // for items, pass position - 1 as header takes the first index,
-                        in 1..data.size -> holder.itemView.boilercycler_item_title.text = data[position - 1]
+                        in 1..listData.size -> holder.itemView.boilercycler_item_title.text = listData[position - 1]
                         // for the footer,
-                        data.size + 1 -> // do something
+                        listData.size + 1 -> // do something
                     }
-                    // set holder views with data,
-                    holder.itemView.boilercycler_item_image.setImageDrawable(drawable)
-                    holder.itemView.boilercycler_item_title.text = listData[position]
                 },
                 // onClick method passed with view and position data,
                 onClick = { view, position ->
